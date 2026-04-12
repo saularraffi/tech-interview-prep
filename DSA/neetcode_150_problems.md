@@ -2,7 +2,7 @@
 
 ## Easy
 
-- [ ] https://neetcode.io/problems/duplicate-integer/question?list=neetcode150
+- [x] https://neetcode.io/problems/duplicate-integer/question?list=neetcode150
 - [ ] https://neetcode.io/problems/is-anagram/question?list=neetcode150
 - [ ] https://neetcode.io/problems/two-integer-sum/question?list=neetcode150
 - [ ] https://neetcode.io/problems/is-palindrome/question?list=neetcode150
