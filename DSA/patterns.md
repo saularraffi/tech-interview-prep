@@ -117,6 +117,89 @@ The general pattern is: expand until a condition is **violated**, then shrink un
 ### When To Use
 
 ## 3. Fast & Slow Pointers
+
+The fast and slow pointer (a.k.a. "tortoise and hare" a.k.a "Floyd's Algorithm") is a **two-pointer** technique where you move two pointers through a structure (often a linked list) at different speeds to reveal patterns you can’t see with a single pass.
+- **Slow pointer** → moves 1 step at a time
+- **Fast pointer** → moves 2 (or more) steps at a time
+
+You can use this pattern to
+- Detect cycles
+- Find the start of a cycle
+- Find the middle of a linked list
+
+### Visualization
+
+In this example, this pattern is used to find the start of a cycle
+
+<img src="../assets/fast_and_slow_pointers.webp" alt="fast and slow pointers" height="400" />
+
+Think of a race track:
+- If there’s **no loop** → fast runs off the track (hits None)
+- If there is a **loop** → fast eventually laps slow → collision
+
+### Finding the Middle
+
+```python
+def find_middle(head):
+    slow = head
+    fast = head
+
+    # Move until fast reaches the end
+    while fast is not None and fast.next is not None:
+        slow = slow.next          # move slow by 1
+        fast = fast.next.next     # move fast by 2
+
+    return slow  # slow is at the middle
+```
+
+### Cycle Detection
+
+```python
+def has_cycle(head) -> bool:
+    slow = head
+    fast = head
+
+    while fast is not None and fast.next is not None:
+        slow = slow.next
+        fast = fast.next.next
+
+        # If they meet, there's a cycle
+        if slow is fast:
+            return True
+
+    # Fast reached the end, no cycle
+    return False
+```
+
+### Finding Cycle Start
+
+```python
+def find_cycle_start(head):
+    slow = head
+    fast = head
+
+    # Phase 1: detect cycle and find meeting point
+    while fast is not None and fast.next is not None:
+        slow = slow.next
+        fast = fast.next.next
+
+        if slow is fast:
+            # Phase 2: find cycle start
+            pointer = head
+            while pointer is not slow:
+                pointer = pointer.next
+                slow = slow.next
+            return slow  # cycle start
+
+    return None  # no cycle
+```
+
+### Key Insights
+
+The beauty of this pattern lies in how efficiently it solves these type of problems. It only uses O(n) time and O(1) space complexity, which means it's both fast and memory-efficient.
+
+- For example, finding the start of a cycle, you could tranverse a linked list with a single pointer, hashing node values by saving them to a `Set`, and detecting if any encountered node is already in the set. This results in O(n) time AND space complexity
+
 ## 4. In-place Linked List Reversal
 ## 5. Monotonic Stack
 ## 6. Top K Elements
