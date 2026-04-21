@@ -88,6 +88,64 @@ Prefix sum is the right tool when you see these patterns:
 | Grid problems                | Matrix Block Sum, Maximal Square                                         |
 
 ## 2. Sliding Window
+
+Sliding window is a powerful problem-solving pattern where you use **two pointers** to define a “window” and slide them over a data structure, typically an array or a string to find subarrays or substrings that meet a certain requirement.
+
+The power comes from **incremental updates**. When sliding from one position to the next:
+- We **lose one** element (the one leaving the window on the left)
+- We **gain one** element (the one entering the window on the right)
+- Everything else stays the same
+
+```
+[1, 2, 3, 4, 5]
+ ^     ^
+ L     R
+
+[1, 2, 3, 4, 5]
+    ^     ^
+    L     R
+
+[1, 2, 3, 4, 5]
+       ^     ^
+       L     R
+```
+
+Brute force
+```
+Window [0, 2]: sum = nums[0] + nums[1] + nums[2]
+Window [1, 3]: sum = nums[1] + nums[2] + nums[3]  // Recalculates nums[1], nums[2]
+Window [2, 4]: sum = nums[2] + nums[3] + nums[4]  // Recalculates nums[2], nums[3]
+```
+
+Using sliding window
+```
+Window [0, 2]: sum = nums[0] + nums[1] + nums[2]
+Window [1, 3]: sum = previous_sum - nums[0] + nums[3]  // O(1) update!
+Window [2, 4]: sum = previous_sum - nums[1] + nums[4]  // O(1) update!
+```
+
+### Variable Size (Dynamic) Window
+
+Instead of keeping the window size static, the window size changes throughout iteration by using two pointers, left and right, where **right expands** the window and **left contracts** it.
+
+The general pattern is: expand until a condition is **violated**, then shrink until the condition is **restored**.
+
+### When To Use
+
+Sliding window is the right tool when you see these patterns:
+
+1. **Contiguous subarray or substring**: The problem asks about elements that are next to each other. Sliding window works on contiguous sequences, not subsequences.
+2. **Some form of "longest," "shortest," "maximum," or "minimum"**: We are optimizing some property of a contiguous segment.
+3. **The "expand and shrink" mental model applies**: Can you imagine expanding a window until a condition breaks, then shrinking until it is satisfied again? That is dynamic sliding window.
+4. **O(n) solution seems possible**
+
+| Problem Type              | Pattern                                   | Example                                        |
+|---------------------------|-------------------------------------------|------------------------------------------------|
+| Fixed size optimization   | Fixed window                              | Maximum sum of k consecutive elements          |
+| Longest with constraint   | Expand until invalid, no shrink needed    | Longest substring with at most k distinct      |
+| Shortest with constraint  | Expand until valid, shrink while valid    | Minimum window substring                       |
+| Exact match               | Expand and shrink to maintain             | Subarray with exact sum (positive numbers only)|
+
 ## 3. Fast & Slow Pointers
 ## 4. In-place Linked List Reversal
 ## 5. Monotonic Stack
