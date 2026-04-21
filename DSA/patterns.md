@@ -71,22 +71,6 @@ Edge case: When left = 0, there is no `prefix[left - 1]`. In this case, `sum(0, 
 
 ### When To Use
 
-Prefix sum is the right tool when you see these patterns:
-
-1. **Multiple range sum queries on a static array**: If the array does not change and you need to answer many range sum queries, preprocessing with prefix sum is almost always the right approach.
-2. **Counting subarrays with a specific sum**: Problems like "find subarrays that sum to k" become tractable with prefix sums combined with a hash map.
-3. **Finding equilibrium points or balance conditions**: When you need to compare sums of left and right portions of an array.
-4. **2D grid problems involving rectangular sums**: Prefix sums extend naturally to 2D for calculating sums of any rectangular region.
-
-| Problem Type                 | Examples                                                                 |
-|------------------------------|--------------------------------------------------------------------------|
-| Range sum queries            | Range Sum Query - Immutable, Range Sum Query 2D                          |
-| Subarray sum equals target   | Subarray Sum Equals K, Continuous Subarray Sum                           |
-| Subarray divisibility        | Subarray Sums Divisible by K                                             |
-| Product-based queries        | Product of Array Except Self (uses prefix products)                      |
-| Equilibrium problems         | Find Pivot Index, Partition Array Into Three Parts                       |
-| Grid problems                | Matrix Block Sum, Maximal Square                                         |
-
 ## 2. Sliding Window
 
 Sliding window is a powerful problem-solving pattern where you use **two pointers** to define a “window” and slide them over a data structure, typically an array or a string to find subarrays or substrings that meet a certain requirement.
@@ -131,20 +115,6 @@ Instead of keeping the window size static, the window size changes throughout it
 The general pattern is: expand until a condition is **violated**, then shrink until the condition is **restored**.
 
 ### When To Use
-
-Sliding window is the right tool when you see these patterns:
-
-1. **Contiguous subarray or substring**: The problem asks about elements that are next to each other. Sliding window works on contiguous sequences, not subsequences.
-2. **Some form of "longest," "shortest," "maximum," or "minimum"**: We are optimizing some property of a contiguous segment.
-3. **The "expand and shrink" mental model applies**: Can you imagine expanding a window until a condition breaks, then shrinking until it is satisfied again? That is dynamic sliding window.
-4. **O(n) solution seems possible**
-
-| Problem Type              | Pattern                                   | Example                                        |
-|---------------------------|-------------------------------------------|------------------------------------------------|
-| Fixed size optimization   | Fixed window                              | Maximum sum of k consecutive elements          |
-| Longest with constraint   | Expand until invalid, no shrink needed    | Longest substring with at most k distinct      |
-| Shortest with constraint  | Expand until valid, shrink while valid    | Minimum window substring                       |
-| Exact match               | Expand and shrink to maintain             | Subarray with exact sum (positive numbers only)|
 
 ## 3. Fast & Slow Pointers
 ## 4. In-place Linked List Reversal
