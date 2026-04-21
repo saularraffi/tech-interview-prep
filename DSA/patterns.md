@@ -200,24 +200,23 @@ The beauty of this pattern lies in how efficiently it solves these type of probl
 
 - For example, finding the start of a cycle, you could tranverse a linked list with a single pointer, hashing node values by saving them to a `Set`, and detecting if any encountered node is already in the set. This results in O(n) time AND space complexity
 
-## 4. In-place Linked List Reversal
-## 5. Monotonic Stack
-## 6. Top K Elements
-## 7. Overlapping Intervals / Merge Intervals
-## 8. Modified Binary Search
-## 9. Binary Search
+## 1. Bit Manipulation
+## 2. Greedy Algorithms
+## 3. Binary Search
+## 4. Cyclic Sort
+## 5. Intervals (Overlapping / Merge)
+## 6. Monotonic Stack
+## 7. Top K Elements
+## 8. Two Heaps
+## 9. K-way Merge
 ## 10. Binary Tree Traversal
-## 11. Depth-First Search (DFS)
-## 12. Breadth-First Search (BFS)
-## 13. Matrix Traversal
-## 14. Backtracking
-## 15. Dynamic Programming
-## 16. Greedy Algorithms
-## 17. Topological Sort
+## 11. Matrix Traversal
+## 12. Depth-First Search (DFS)
+## 13. Breadth-First Search (BFS)
+## 14. Topological Sort
+## 15. In-place Linked List Reversal
+## 16. Subsets
+## 17. Backtracking
 ## 18. Trie (Prefix Tree)
-## 19. Cyclic Sort
-## 20. Two Heaps
-## 21. Subsets
-## 22. Bitwise XOR
-## 23. K-way Merge
-## 24. 0/1 Knapsack
+## 19. Dynamic Programming
+## 20. 0/1 Knapsack
