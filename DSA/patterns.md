@@ -200,7 +200,106 @@ The beauty of this pattern lies in how efficiently it solves these type of probl
 
 - For example, finding the start of a cycle, you could tranverse a linked list with a single pointer, hashing node values by saving them to a `Set`, and detecting if any encountered node is already in the set. This results in O(n) time AND space complexity
 
+### When To Use
+
 ## 1. Bit Manipulation
+
+### The 6 Bitwise Operators
+
+#### 1. AND (`&`)
+
+Returns `1` only if both bits are `1`.
+
+```
+  5 = 0101
+& 3 = 0011
+-----------
+  1 = 0001
+```
+
+**Use case**: Check if a specific bit is set, clear bits, extract bits.
+
+#### 2. OR (`|`)
+
+Returns `1` if at least one bit is `1`.
+
+```
+  5 = 0101
+| 3 = 0011
+-----------
+  7 = 0111
+```
+
+**Use case**: Set specific bits to 1.
+
+#### 3. XOR (`^`)
+
+Returns `1` if the bits are different.
+
+```
+  5 = 0101
+^ 3 = 0011
+-----------
+  6 = 0110
+```
+
+**Use case**: Toggle bits, find unique elements, swap values.
+
+**Key property**: `a ^ a = 0` and `a ^ 0 = a`
+
+#### 4. NOT (`~`)
+
+Flips all bits (`0` becomes `1`, `1` becomes `0`).
+
+```
+ ~5 = ~0101
+-----------
+    = 1010  (in a larger bit representation, this gives -6)
+```
+
+**Note**: In most languages, `~n = -(n + 1)` due to two's complement representation. Negative numbers are represented using two's complement: `-n = ~n + 1`
+
+#### 5. Left Shift (`<<`)
+
+Shifts bits to the left by specified positions. Each shift multiplies by 2.
+
+```
+5 << 1:
+  0101 << 1
+= 1010
+= 10
+```
+
+**Formula**: `n << k = n × 2^k`
+
+#### 6. Right Shift (`>>`)
+
+Shifts bits to the right by specified positions. Each shift divides by 2 (integer division).
+
+```
+5 >> 1:
+  0101 >> 1
+= 0010
+= 2
+```
+
+**Formula**: `n >> k = n / 2^k` (integer division)
+
+### Common Techniques
+
+#### Bit Masking
+
+- `1 << k` creates a number with only the k-th bit set and `n & (1 << k)` isolates that bit (so, if that bit was set, the entire binary has one bit, otherwise it has no bits)
+
+Example:
+
+```
+n      = 101101
+mask   = 000100   (1 << 2)
+------------------------
+n & mask = 000100   ← isolates that bit
+```
+
 ## 2. Greedy Algorithms
 ## 3. Binary Search
 ## 4. Cyclic Sort
