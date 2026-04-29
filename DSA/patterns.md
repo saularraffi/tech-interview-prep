@@ -301,6 +301,48 @@ n & mask = 000100   ← isolates that bit
 ```
 
 ## 2. Greedy Algorithms
+
+Greedy algorithms are a class of algorithms that make locally optimal choices at each step with the hope of finding a global optimum solution.
+
+<img src="../assets/greedy_algorithm.png" alt="greedy algorithms" width="1000" height="180" />
+
+The key characteristics of greedy algorithms:
+
+1. **Makes one choice at a time**: At each step, select the option that looks best right now
+2. **Never reconsiders**: Once a choice is made, it is final
+3. **Builds solution incrementally**: Each choice extends the partial solution
+4. **Local optimization**: Each step is locally optimal, not necessarily globally optimal
+
+Important: when choosing a greedy algorith, you have to choose the right **greedy criteria** - how you're selecting the most optimal choice at every step
+
+Here's how it works:
+1. Identify the decision being made - greedy problems usually ask you to repeatedly make a local choice. So, ask yourself, "At each step, what am I choosing?"
+2. Determinine the minimum state needed - greedy usually does not need full history. Track only what affects the next choice.
+3. Consider all the options available at that specific moment.
+4. Choose the option that seems best at that moment (local choice), regardless of future consequences. This is the "greedy" part - you take the best option available now, even if it might not be the best in the long run.
+5. Move to the new state based on your chosen option. This becomes your new starting point for the next iteration.
+6. Repeat steps 3-5 until you reach the goal state or no further progress is possible.
+
+Advice: start off by sorting the input around the **greedy criteria** choice - most greedy problems become clear after sorting.
+
+### Common Mistakes
+
+#### Mistake 1: Assuming Greedy Works Without Proof
+
+Just because a problem looks like it should be greedy does not mean it is. Always verify with counterexamples.
+
+Before committing to greedy in an interview, think: "Can I construct a case where the greedy choice leads to a suboptimal solution?"
+
+#### Mistake 2: Wrong Greedy Criterion
+
+Choosing the wrong sorting or selection criterion leads to incorrect results.
+
+#### Mistake 3: Greedy for Counting Problems
+
+If the problem asks "how many ways" or "count all solutions," greedy usually does not apply. These typically need DP or backtracking.
+
+### When To Use
+
 ## 3. Binary Search
 ## 4. Cyclic Sort
 ## 5. Intervals (Overlapping / Merge)
