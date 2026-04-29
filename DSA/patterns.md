@@ -344,7 +344,118 @@ If the problem asks "how many ways" or "count all solutions," greedy usually doe
 ### When To Use
 
 ## 3. Binary Search
+
+Why O(log n)? With each comparison, binary search eliminates half the remaining elements. If you start with n elements:
+
+- After 1 comparison: n/2 elements remain
+- After 2 comparisons: n/4 elements remain
+- After k comparisons: n/2^k elements remain
+- We stop when only 1 element remains: n/2^k = 1, which gives k = log₂(n).
+
+### When To Use
+
 ## 4. Cyclic Sort
+
+The `cycle sort` algorithm is an in-place sorting algorithm. This means that no external data structure (such as a `list` or `heap`) is required to perform the `cycle sort` operation.
+
+The underlying assumption for the `cycle sort` algorithm is that an unsorted list is similar to a graph, where nodes are connected with edges. We can assume that a relationship between nodes `A` and `B` exists if, in order to sort the array, the element present at node `A` should be at the index of node `B` when rotated.
+
+**This is the big idea:**
+
+Given an element `a`, we can find the index at which it will occur in the sorted list by simply counting the number of elements in the entire list that are smaller than `a`.
+
+Take this array for example - [40, 10, 30, 20]
+
+At index 2, we have the value 30. We need to ask, how many numbers are smaller than 30? They are values 10 and 20, therefore, 2 values are smaller than 30. Therefore, the value 30 belongs at index 2.
+
+When values are constrained to a fixed range, like `1 to n`, then the indexing can be simplified to:
+
+```
+correct index = value - range_start
+
+if range is 1 to n, then
+
+correct index = value - 1
+```
+
+### Complexity
+
+Time: O(n)
+Space: O(1)
+
+### Code Template
+
+```python
+i = 0
+
+while i < len(nums):
+    correct = nums[i] - 1
+
+    if nums[i] != nums[correct]:
+        nums[i], nums[correct] = nums[correct], nums[i]
+    else:
+        i += 1
+```
+
+### Example
+
+```
+nums = [8, 3, 5, 2, 4, 6, 1, 7]
+fixed range: 1-8
+```
+
+Step 1:
+
+```python
+i = 0
+nums[i] = 8
+correct index = 7
+
+[7, 3, 5, 2, 4, 6, 1, 8]
+```
+
+Step 2:
+
+```python
+i = 0
+nums[i] = 7
+correct index = 6
+
+[1, 3, 5, 2, 4, 6, 7, 8]
+```
+
+Step 3:
+
+```python
+i = 1
+nums[i] = 3
+correct index = 2
+
+[1, 5, 3, 2, 4, 6, 7, 8]
+```
+
+Step 4:
+
+```python
+i = 1
+nums[i] = 5
+correct index = 4
+
+[1, 4, 3, 2, 5, 6, 7, 8]
+```
+
+Step 5:
+
+```python
+i = 1
+nums[i] = 4
+correct index = 3
+
+[1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+### When To Use
+
 ## 5. Intervals (Overlapping / Merge)
 ## 6. Monotonic Stack
 ## 7. Top K Elements
