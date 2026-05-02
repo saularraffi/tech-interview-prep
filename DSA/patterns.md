@@ -497,6 +497,73 @@ Most interval algorithms begin with sorting. The two common approaches are:
 
 ## 6. Monotonic Stack
 
+A **Monotonic Stack** is a stack that keeps its elements in a specific order — either always increasing or always decreasing.
+
+In a **Monotonic Increasing Stack**, each new element you push is larger than the ones already in the stack.
+
+In a **Monotonic Decreasing Stack**, each new element you push is smaller than the ones in the stack.
+
+### The Theory
+
+A monotnoic stack encodes a **dominance relation**. At any point, the stack maintains a set of elements that are not dominated by any later element (so far).
+
+- For increasing stack → a later smaller element makes earlier larger ones irrelevant 
+- For decreasing stack → a later larger element does the same
+
+So the stack is effectively maintaining a **Pareto frontier** → keeps only items that are not strictly worse in all dimensions.
+
+Formally, point `A` dominates point `B` if:
+
+```
+A is at least as good in every dimension
+AND strictly better in at least one
+```
+
+Everything dominated can be discarded without losing optimal answers.
+
+### Example
+
+Let's say we want to build a monotonic increasing stack from `[3, 1, 4, 2]`
+
+```
+[3, 1, 4, 2]
+ ^
+
+stack = []
+push 3
+stack = [3]
+```
+
+```
+[3, 1, 4, 2]
+    ^
+
+stack = [3] <-- stack top 3 > 1 ❌
+pop 3
+push 1
+stack = [1]
+```
+
+```
+[3, 1, 4, 2]
+       ^
+
+stack = [1] <-- stack top 1 <= 4 ✅
+push 4
+stack = [1, 4]
+```
+
+```
+[3, 1, 4, 2]
+          ^
+
+stack = [1] <-- stack top 4 > 2 ❌
+pop 4
+stack = [1] <-- top 1 <= 2 ✅
+push 2
+stack = [1, 2]
+```
+
 ### 🔎 When To Use
 
 ## 7. Top K Elements
