@@ -131,7 +131,7 @@ You can use this pattern to
 
 In this example, this pattern is used to find the start of a cycle
 
-<img src="../assets/fast_and_slow_pointers.webp" alt="fast and slow pointers" height="400" />
+<img src="../assets/fast_and_slow_pointers.webp" alt="fast and slow pointers" width="500" />
 
 Think of a race track:
 - If there’s **no loop** → fast runs off the track (hits None)
@@ -304,7 +304,7 @@ n & mask = 000100   ← isolates that bit
 
 Greedy algorithms are a class of algorithms that make locally optimal choices at each step with the hope of finding a global optimum solution.
 
-<img src="../assets/greedy_algorithm.png" alt="greedy algorithms" width="1000" height="180" />
+<img src="../assets/greedy_algorithm.png" alt="greedy algorithms" width="1000" />
 
 The key characteristics of greedy algorithms:
 
@@ -476,7 +476,7 @@ Given interval `A = [a, b]` and interval `B = [c, d]`, they overlap if and only 
 a <= d AND b <= c
 ```
 
-<img src="../assets/intervals.png" alt="intervals" width="1000" height="200" />
+<img src="../assets/intervals.png" alt="intervals" width="500" />
 
 ### Sorting
 
@@ -567,6 +567,14 @@ stack = [1, 2]
 ### 🔎 When To Use
 
 ## 7. Top K Elements
+
+Top K elements is a pattern for efficiently extracting the **k most relevant items** from a dataset without fully sorting everything. Instead of trying to impose a complete order on all n elements, you maintain a **small, evolving subset of size k** that represents the current best candidates.
+
+This is achieved using **min- and max-heaps**.
+
+<img src="../assets/top_k_elements.png" alt="Top K Elements" width="600" />
+
+- Note: Python’s `heapq` provides a min heap by default, and you can simulate a max heap by inserting negated values (e.g., `-x`) and negating again when retrieving results.
 
 ### 🔎 When To Use
 
