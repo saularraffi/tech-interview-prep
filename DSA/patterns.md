@@ -69,7 +69,7 @@ Prefix sum is not just about sums - it’s about **transforming problems into cu
 
 Edge case: When left = 0, there is no `prefix[left - 1]`. In this case, `sum(0, right) = prefix[right]`.
 
-### When To Use
+### 🔎 When To Use
 
 ## 2. Sliding Window
 
@@ -114,7 +114,7 @@ Instead of keeping the window size static, the window size changes throughout it
 
 The general pattern is: expand until a condition is **violated**, then shrink until the condition is **restored**.
 
-### When To Use
+### 🔎 When To Use
 
 ## 3. Fast & Slow Pointers
 
@@ -200,7 +200,7 @@ The beauty of this pattern lies in how efficiently it solves these type of probl
 
 - For example, finding the start of a cycle, you could tranverse a linked list with a single pointer, hashing node values by saving them to a `Set`, and detecting if any encountered node is already in the set. This results in O(n) time AND space complexity
 
-### When To Use
+### 🔎 When To Use
 
 ## 1. Bit Manipulation
 
@@ -341,7 +341,7 @@ Choosing the wrong sorting or selection criterion leads to incorrect results.
 
 If the problem asks "how many ways" or "count all solutions," greedy usually does not apply. These typically need DP or backtracking.
 
-### When To Use
+### 🔎 When To Use
 
 ## 3. Binary Search
 
@@ -352,7 +352,7 @@ Why O(log n)? With each comparison, binary search eliminates half the remaining 
 - After k comparisons: n/2^k elements remain
 - We stop when only 1 element remains: n/2^k = 1, which gives k = log₂(n).
 
-### When To Use
+### 🔎 When To Use
 
 ## 4. Cyclic Sort
 
@@ -454,21 +454,103 @@ correct index = 3
 [1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
-### When To Use
+### 🔎 When To Use
 
-## 5. Intervals (Overlapping / Merge)
+## 5. Intervals
+
+An interval represents a continuous range with a `start` and `end` point.
+
+Intervals can be:
+
+- **Closed**: Both endpoints are included, written as `[a, b]`
+- **Open**: Both endpoints are excluded, written as `(a, b)`
+- **Half-open**: One endpoint included, written as `[a, b)` or `(a, b]`
+
+There are two fundamental operations to interval based DSA problems: **Detecting overlaps** and **sorting**
+
+### Detecting Overlap
+
+Given interval `A = [a, b]` and interval `B = [c, d]`, they overlap if and only if:
+
+```
+a <= d AND b <= c
+```
+
+<img src="../assets/intervals.png" alt="intervals" width="1000" height="200" />
+
+### Sorting
+
+Most interval algorithms begin with sorting. The two common approaches are:
+
+**Sort by start time**: Used when you care about building / merging / scanning forward. Use this when you need to process intervals in chronological order and reason about how they interact as they appear.
+
+**Sort by end time**: Used when you care about greedy optimization. Use this when the goal is to maximize or minimize something (usually number of intervals).
+
+### Common Mistakes
+
+1. Forgetting to sort
+2. Using the wrong sort key (start vs. end)
+3. Off-by-one in overlap detection - the difference between `<` and `<-` matters, so read the problem carefully
+4. Forgetting the last interval - when building a result list incrementally, the last interval is often added inside the loop only under certain conditions. Make sure to add it after the loop
+
+### 🔎 When To Use
+
 ## 6. Monotonic Stack
+
+### 🔎 When To Use
+
 ## 7. Top K Elements
+
+### 🔎 When To Use
+
 ## 8. Two Heaps
+
+### 🔎 When To Use
+
 ## 9. K-way Merge
+
+### 🔎 When To Use
+
 ## 10. Binary Tree Traversal
+
+### 🔎 When To Use
+
 ## 11. Matrix Traversal
+
+### 🔎 When To Use
+
 ## 12. Depth-First Search (DFS)
+
+### 🔎 When To Use
+
 ## 13. Breadth-First Search (BFS)
+
+### 🔎 When To Use
+
 ## 14. Topological Sort
+
+### 🔎 When To Use
+
 ## 15. In-place Linked List Reversal
+
+### 🔎 When To Use
+
 ## 16. Subsets
+
+### 🔎 When To Use
+
 ## 17. Backtracking
+
+### 🔎 When To Use
+
 ## 18. Trie (Prefix Tree)
+
+### 🔎 When To Use
+
 ## 19. Dynamic Programming
+
+### 🔎 When To Use
+
 ## 20. 0/1 Knapsack
+
+### 🔎 When To Use
